@@ -4,11 +4,59 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/static/css/style.css">
     <title>Note Aktualisiert</title>
+    <style>
+        /* Grundlegende Styles für den Body */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container für die Erfolgsmeldung */
+        .container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Überschrift */
+        h1 {
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Paragraph für die Erfolgsnachricht */
+        p {
+            font-size: 16px;
+            color: #555;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Link zurück zur Startseite */
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #007BFF;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>Note Aktualisiert</h1>
-        <p th:text="'Note aktualisiert: ID ' + ${Noten.id} + ', Modul: ' + ${Noten.fach} + ', Note: ' + ${Noten.note}"></p>
+        <p th:text="'Note aktualisiert: ID ' + ${note.id} + ', Modul: ' + ${note.fach} + ', Note: ' + ${note.note}"></p>
         <a href="/" class="back-link">Zurück zur Startseite</a>
     </div>
 </body>

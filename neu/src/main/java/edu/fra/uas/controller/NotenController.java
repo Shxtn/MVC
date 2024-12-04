@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import edu.fra.uas.NotenService.NotenService;
-import edu.fra.uas.model.Noten;
+import edu.fra.uas.model.Note;
 
 @Controller
 public class NotenController {
@@ -24,17 +24,17 @@ public class NotenController {
     private NotenService notenService;
 
     @RequestMapping
-    public String get(){
+    public String get() {
         log.debug("get() wird aufgerufen : ");
         return "index.html";
     }
-    
-    @RequestMapping(value = {"/list"}, method = RequestMethod.GET)
-    public String list(Model model){
+
+    @RequestMapping(value = { "/list" }, method = RequestMethod.GET)
+    public String list(Model model) {
         log.debug("list() wird aufgerufen : ");
-        Iterable<Noten> notenIter = notenService.getAllNoten();
-        List<Noten> notenliste = new ArrayList<>();
-        for (Noten noten : notenIter) {
+        Iterable<Note> notenIter = notenService.getAllNoten();
+        List<Note> notenliste = new ArrayList<>();
+        for (Note noten : notenIter) {
             notenliste.add(noten);
         }
         model.addAttribute("Noten", notenliste);
@@ -42,53 +42,60 @@ public class NotenController {
 
     }
 
-    @RequestMapping(value = {"/find"}, method = RequestMethod.GET)
+    @RequestMapping(value = { "/find" }, method = RequestMethod.GET)
     public String find(@RequestParam("id") Long notenId, Model model) {
         log.debug("find() is called");
-        Noten noten = notenService.getNotenById(notenId);
-        model.addAttribute("Noten", noten);
+        Note noten = notenService.getNotenById(notenId);
+        model.addAttribute("note", noten);
         return "find.html";
     }
 
-    @RequestMapping(value = {"/add"}, method = RequestMethod.GET)
-    public String add(@RequestParam("Modul") String modul, @RequestParam("Note") double noten, Model model) throws MissingServletRequestParameterException {
-        log.debug("add() wird aufgerufen");
-        Noten note = new Noten();
-        note.setFach(modul);
-        note.setNote(noten);
-        notenService.createNote(note);
-        model.addAttribute("note", note);
-        return "add";
+    @RequestMapping(value = { "/add" }, method = RequestMethod.GET)
+    public String add() {
+        log.debug("add() is called");
+        return "add.html";
     }
 
-    @RequestMapping(value =     {"/update"}, method = RequestMethod.GET)
+    @RequestMapping(value = { "/added" }, method = RequestMethod.GET)
+    public String added(@RequestParam("Modul") String modul, @RequestParam("note") double noteZahl, Model model)
+            throws MissingServletRequestParameterException {
+        log.debug("add() wird aufgerufen");
+        Note note = new Note();
+        note.setFach(modul);
+        note.setNote(noteZahl);
+        notenService.createNote(note);
+        model.addAttribute("note", note);
+        return "added.html"; // hast hier nur add geschrieben und nicht "add.html"
+    }
+
+    @RequestMapping(value = { "/update" }, method = RequestMethod.GET)
     public String update() {
         log.debug("update() is called");
         return "update.html";
-}
-@RequestMapping(value = {"/updated"}, method = { RequestMethod.GET, RequestMethod.POST })
-    public String update(@RequestParam("id") Long notenId, 
-                         @RequestParam("Modul ") String modul, 
-                         @RequestParam("Noten") double noten, 
-                         Model model) {
-        log.debug("updated() is called");
-        Noten note = notenService.getNotenById(notenId);
-        note.setId(notenId);
-        note.setFach(modul);
-        note.setNote(noten);
-        notenService.updateUser(note);
-        model.addAttribute("Noten", note);
-        return "updated.html";
-    }    
+    }
 
-    @RequestMapping(value = {"/delete/{id}"}, method = RequestMethod.GET)
+    @RequestMapping(value = { "/updated" }, method = { RequestMethod.GET, RequestMethod.POST })
+    public String update(@RequestParam("notenId") Long notenId,
+            @RequestParam("Modul") String modul,
+            @RequestParam("Note") double note,
+            Model model) {
+        log.debug("updated() is called");
+        Note neueNote = notenService.getNotenById(notenId);
+        neueNote.setId(notenId);
+        neueNote.setFach(modul);
+        neueNote.setNote(note);
+        notenService.updateNote(neueNote);
+        model.addAttribute("note", neueNote);
+        return "updated.html";
+    }
+
+    @RequestMapping(value = { "/delete/{id}" }, method = RequestMethod.GET)
     public String delete(@PathVariable("id") Long notenid, Model model) {
         log.debug("delete() is called");
-        Noten note = notenService.getNotenById(notenid);
-        notenService.deleteUser(notenid);
-        model.addAttribute("user", note);
+        Note note = notenService.getNotenById(notenid);
+        notenService.deleteNote(notenid);
+        model.addAttribute("note", note);
         return "deleted.html";
     }
 
 }
-
