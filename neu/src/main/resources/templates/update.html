@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Note Aktualisieren</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Note Aktualisieren</h1>
+        <form action="/updated" method="GET">
+            <label for="id">ID der Note:</label>
+            <input type="number" id="id" name="id" required>
+
+            <label for="Modul">Modul:</label>
+            <input type="text" id="Modul" name="Modul" required>
+
+            <label for="Noten">Note:</label>
+            <input type="number" id="Noten" name="Noten" step="0.01" required>
+
+            <button type="submit">Aktualisieren</button>
+        </form>
+        <a href="/" class="back-link">Zurück zur Startseite</a>
+    </div>
+</body>
+</html>

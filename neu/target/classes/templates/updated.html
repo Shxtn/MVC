@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Note Aktualisiert</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Note Aktualisiert</h1>
+        <p th:text="'Note aktualisiert: ID ' + ${Noten.id} + ', Modul: ' + ${Noten.fach} + ', Note: ' + ${Noten.note}"></p>
+        <a href="/" class="back-link">Zurück zur Startseite</a>
+    </div>
+</body>
+</html>

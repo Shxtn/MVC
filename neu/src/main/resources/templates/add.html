@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Note Hinzufügen</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Note Hinzufügen</h1>
+        
+        <form action="/add" method="GET">
+            <label for="Modul">Modul:</label>
+            <input type="text" id="Modul" name="Modul" required>
+
+            <label for="Note">Note:</label>
+            <input type="number" id="Note" name="Note" step="0.01" required>
+
+            <button type="submit">Note Hinzufügen</button>
+        </form>
+
+        <div th:if="${note != null}">
+            <h2>Neue Note hinzugefügt</h2>
+            <p th:text="'Neue Note hinzugefügt: ID ' + ${note.id} + ', Modul: ' + ${note.fach} + ', Note: ' + ${note.note}"></p>
+        </div>
+
+        <a href="/" class="back-link">Zurück zur Startseite</a>
+    </div>
+</body>
+</html>

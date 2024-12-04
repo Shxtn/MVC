@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Note Gelöscht</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Note Gelöscht</h1>
+        <p th:text="'Gelöschte Note: ID ' + ${user.id} + ', Modul: ' + ${user.fach} + ', Note: ' + ${user.note}"></p>
+        <a href="/" class="back-link">Zurück zur Startseite</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Note Finden</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Gefundene Note</h1>
+        <ul>
+            <li th:text="'ID: ' + ${Noten.id} + ', Modul: ' + ${Noten.fach} + ', Note: ' + ${Noten.note}"></li>
+        </ul>
+        <a href="/" class="back-link">Zurück zur Startseite</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,158 @@
+/* Datei: style.css */
+
+/* Allgemeine Stile für den Körper */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e8f4f8;  /* Heller, freundlicher Hintergrund */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container für den Hauptinhalt */
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border: 2px solid #f0f0f0;
+}
+
+/* Stile für die Titel */
+h1, h2 {
+    color: #005073; /* Ein dunkles Blau für Titel */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Links und Buttons */
+a, button {
+    text-decoration: none;
+    color: #fff;
+    background-color: #007bff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover-Effekte für Links und Buttons */
+a:hover, button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Link für "Zurück" */
+a.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    background-color: #6c757d; /* Grau für weniger dominante Links */
+}
+
+a.back-link:hover {
+    background-color: #4b5259;
+}
+
+/* Eingabefelder und Labels */
+label {
+    display: block;
+    margin: 15px 0 5px 0;
+    color: #005073; /* Gleiche Farbe wie die Titel */
+    font-weight: bold;
+}
+
+input {
+    padding: 10px;
+    width: calc(100% - 22px);
+    border: 2px solid #007bff; /* Leicht farbiger Rand */
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover- und Fokus-Effekte für Eingabefelder */
+input:focus {
+    border-color: #0056b3; /* Dunklere Farbe im Fokus */
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.4);
+}
+
+/* Tabellen */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.table th, .table td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+/* Tabellenkopf */
+.table th {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Farbige Zeilen in der Tabelle */
+.table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Hover-Effekt für Tabellenzeilen */
+.table tr:hover {
+    background-color: #e0f7fa; /* Leichtes Cyan für den Hover-Effekt */
+}
+
+/* Karten-Stil für Listenelemente */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #fff; /* Weißer Hintergrund für Notenkarten */
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #007bff; /* Farbakzent auf der linken Seite */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover-Effekt für Listenelemente */
+li:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px); /* Leichter Hüpfeffekt */
+}
+
+/* Formular */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Überschriftenstil */
+h1, h2 {
+    font-family: 'Arial', sans-serif;
+    color: #00334e; /* Dunklerer Blau-Ton */
+}
+
+/* Formularelemente */
+input[type="submit"], button {
+    background-color: #28a745; /* Grüner Button */
+}
+
+input[type="submit"]:hover, button:hover {
+    background-color: #218838;
+}
