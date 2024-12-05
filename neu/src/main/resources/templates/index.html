@@ -2,8 +2,83 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="/static/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 15px;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        .image {
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+
+        .message {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .message a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .message a:hover {
+            text-decoration: underline;
+        }
+
+        .overlay {
+            position: relative;
+        }
+
+        .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -12,11 +87,18 @@
             <a href="/list" class="btn">Notenliste anzeigen</a>
             <a href="/add" class="btn">Note hinzufügen</a>
             <a href="/update" class="btn">Note aktualisieren</a>
-            <div class="container">
-                <img src="images/giphy.webp" alt="A unicorn" style="width:100px;height: 100px;" class="image">
-                <div class="overlay">
-                    <div class="text">bruh warum h1 nicht mittig</div>
-                </div>    
         </div>
+
+        <div class="overlay">
+            <img src="images/giphy.webp" alt="A unicorn" class="image" style="width: 150px; height: 150px;">
+        </div>
+
+        <div class="message">
+            <div class="text">bruh warum h1 nicht mittig</div>
+            <p>Sam, da du mein Lieblingsschüler bist, schenke ich dir mein Projekt. 
+                <a href="https://shattereddisk.github.io/rickroll/rickroll.mp4" target="_blank">Drücke hier</a>
+            </p>
+        </div>
+    </div>
 </body>
 </html>

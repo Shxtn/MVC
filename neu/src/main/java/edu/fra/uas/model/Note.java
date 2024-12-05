@@ -4,40 +4,42 @@ import java.io.Serializable;
 
 import org.slf4j.Logger;
 
-
-
-public class Noten implements Serializable {
-    private static final Logger log = org.slf4j.LoggerFactory.getLogger(Noten.class);
+public class Note implements Serializable {
+    private static final Logger log = org.slf4j.LoggerFactory.getLogger(Note.class);
 
     private long id;
     private double note;
     private String fach;
 
-    public Noten(){
-       log.debug("Note erstellt ohne werte ");
+    public Note() {
+        log.debug("Note erstellt ohne werte ");
     }
-    public Noten(long id,double note, String fach) {
-        this.id=id;
+
+    public Note(long id, double note, String fach) {
+        this.id = id;
         this.note = note;
         this.fach = fach;
     }
-    
-    public void setNote(long id){
-        this.id = id;
-    }
-    public long getNote(long id){
-        return id;
-    }
+
+    /*
+     * Aiaiaiai, setNote(), dabei wurde hier die ID gesettet ich lass das mal hier
+     * als absolutes Negativbeispiel
+     * 
+     * public void setNote(long id){
+     * this.id = id;
+     * }
+     * public long getNote(long id){
+     * return id;
+     * }
+     */
 
     public void setNote(double note) {
         this.note = note;
     }
 
-
     public void setFach(String fach) {
         this.fach = fach;
     }
-
 
     public double getNote() {
         return note;
@@ -46,6 +48,16 @@ public class Noten implements Serializable {
     public String getFach() {
         return fach;
     }
+
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public long getId() {
+        return id;
+    }
+    
 
     @Override
     public int hashCode() {
@@ -66,7 +78,7 @@ public class Noten implements Serializable {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Noten other = (Noten) obj;
+        Note other = (Note) obj;
         if (Double.doubleToLongBits(note) != Double.doubleToLongBits(other.note))
             return false;
         if (fach == null) {
@@ -76,18 +88,5 @@ public class Noten implements Serializable {
             return false;
         return true;
     }
-
-
-    public long getId() {
-        return id;
-    }
-
-
-    public void setId(long id) {
-        this.id = id;
-    }
-    
-
-    
 
 }
